@@ -1,0 +1,20 @@
+repo: repo
+theme: united
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: UTC
+      target: stdout
+    - type: file
+      currentLogFilename: ./logs/wijki.log
+      archivedLogFilenamePattern: ./logs/wijki.log.%d.gz
+      archivedFileCount: 10
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+

@@ -1,0 +1,11 @@
+<script>
+  $(document).ready(function() {
+    $('#breadcrum').append($('<span><a href="/">root</a></span>'))
+    var link = ""
+    $.each('{{path}}'.split('/'), function(i, d) {
+      link += '/' + d
+      $('#breadcrum').append($('<span> &gt; </span>'))
+      $('#breadcrum').append($('<span><a href="' + link + '">' + d + '</a></span>'))
+    })
+  })
+</script>

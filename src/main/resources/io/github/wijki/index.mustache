@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{{> header}}
+<xmp theme="{{theme}}" style="display:none;">
+
+# Index <span id="breadcrum" />
+
+{{#subPaths}}
+- [{{.}}](/{{path}}{{^path}}.{{/path}}/{{.}})
+{{/subPaths}}
+
+<form>
+  New: 
+  <input id="new-page" type="text" placeholder="Name for the new page" />
+  <a id="create-link" href="#">Create</a>
+</form>
+
+</xmp>
+{{> footer}}
+
+<script>
+  $(document).ready(function() {
+    $('#create-link').click(function() {
+     var newPage = $('#new-page').val() 
+     if (newPage.length > 0) {
+       var prep = window.location.pathname == '/' ? '' : window.location.pathname
+       window.location.href = prep + '/' + newPage + '?edit'
+     }
+    })
+  })
+</script>
+</html>

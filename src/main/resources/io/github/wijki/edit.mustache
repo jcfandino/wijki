@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+{{> header}}
+
+<xmp theme="{{theme}}" style="display:none;">
+# Edit <span id="breadcrum" />
+
+</xmp>
+<textarea id="edit-text" style="display:block; margin-left:5em; width:90%" rows="20">{{page.content}}</textarea>
+<form>
+
+  <a id="save-link" href="#">Save</a>
+  -
+  <a id="cancel-link" href="#">Cancel</a>
+</form>
+
+{{> footer}}
+
+<script>
+  $(document).ready(function() {
+    $('#save-link').click(function() {
+      $.ajax({
+        type : 'POST',
+        url : window.location.pathname,
+        data : JSON.stringify({
+          content: $('#edit-text').val()
+        }),
+        contentType : 'application/json',
+        success : function() { window.location.href = window.location.pathname }
+      })
+    })
+    $('#cancel-link').click(function() {
+      window.location.href = window.location.pathname
+    })
+  })
+</script>
+
+</html>

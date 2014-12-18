@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{{> header}}
+
+<xmp theme="{{theme}}" style="display:none;">
+
+#<span id="breadcrum" />
+
+{{page.content}}
+
+
+<form>
+  <a id="edit-link" href="#">Edit</a>
+</form>
+
+</xmp>
+
+{{> footer}}
+
+<script>
+  $(document).ready(function() {
+    $('#edit-link').click(function() {
+      window.location.href = window.location.pathname + '?edit'
+    })
+  })
+</script>
+
+</html>

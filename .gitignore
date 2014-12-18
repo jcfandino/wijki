@@ -1,0 +1,10 @@
+build
+bin
+.classpath
+.project
+.settings
+.metadata
+.gradle
+*.log
+target
+deploys.json
